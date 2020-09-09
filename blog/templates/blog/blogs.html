@@ -1,0 +1,111 @@
+{% extends 'mainapp/base.html'%}
+{% load static %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/blogs.css' %}">
+{% endblock %}
+
+{% block content%}
+
+<div class="container-fluid blogs-list">
+
+  <div class="row">
+    <div class="col-sm blog-wrapper">
+      <a href="#">
+      <div class="blog-image-wrapper">
+        <img class="blog-image" src="/media/blog_images/maffiozy.jpg" alt="" />
+      </div>
+
+
+      <div class="blog-caption-wrapper">
+        <h2 class="blog-caption-text">
+          This is caption of blog
+        </h2>
+
+        <span class="timestamp">
+          Two hours ago
+        </span>
+
+        <span class="username">
+          @zubenko
+        </span>
+
+      </div>
+
+      <div class="blog-body-wrapper">
+        <div class="blog-body-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mi...
+
+        </div>
+      </div>
+      </a>
+    </div>
+
+    <div class="col-sm blog-wrapper">
+      <div class="blog-image-wrapper">
+        <img class="blog-image" src="/media/blog_images/maffiozy.jpg" alt="" />
+      </div>
+
+
+      <div class="blog-caption-wrapper">
+        <h2 class="blog-caption-text">
+          This is caption of blog
+        </h2>
+
+        <span class="timestamp">
+          Two hours ago
+        </span>
+
+        <span class="username">
+          @zubenko
+        </span>
+      </div>
+
+      <div class="blog-body-wrapper">
+        <div class="blog-body-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mi...
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm blog-wrapper">
+      <a class="blog-link" href="#">
+      <div class="blog-image-wrapper">
+        <img class="blog-image" src="/media/blog_images/maffiozy.jpg" alt="" />
+      </div>
+
+
+      <div class="blog-caption-wrapper">
+        <h2 class=" blog-caption-text">
+          This is caption of blog
+        </h2>
+
+        <span class="text-muted timestamp">
+          Two hours ago
+        </span>
+
+        <span class="text-muted username">
+          @zubenko
+        </span>
+      </div>
+
+      <div class="blog-body-wrapper">
+        <div class="blog-body-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mi...
+        </div>
+      </div>
+      </a>
+    </div>
+  </div>
+
+
+</div>
+{% endblock %}
+
+
+
+{% block js%}
+<script type="text/javascript" src="{% static 'js/blogs.js'%}">
+</script>
+
+{% endblock %}
