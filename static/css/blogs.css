@@ -1,3 +1,15 @@
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
 
 .blogs-list{
   margin: 40px 0px;
@@ -6,11 +18,13 @@
 .blog-wrapper{
   max-width: 600px;
   margin: 20px 10px;
+  background-color: #ffffff;
 }
 
 .blog_detail_wrapper{
   margin: 40px 0px;
   padding: 0px 40px;
+  background-color: #ffffff;
 }
 
 .blog-wrapper:hover{
@@ -24,7 +38,7 @@
 
 
 .blog-image{
-  width: 300px;
+  width: 340px;
   height: 300px;
   object-fit: cover;
 }
