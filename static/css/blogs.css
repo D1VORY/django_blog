@@ -8,6 +8,11 @@
   margin: 20px 10px;
 }
 
+.blog_detail_wrapper{
+  margin: 40px 0px;
+  padding: 0px 40px;
+}
+
 .blog-wrapper:hover{
   opacity: 75%;
 }
@@ -24,6 +29,14 @@
   object-fit: cover;
 }
 
+.big-image{
+  width: 800px;
+  height: auto;
+  object-fit: cover;
+
+  margin: 20px 0;
+}
+
 .blog-image-wrapper{
   display: flex;
   justify-content: center;
@@ -33,11 +46,19 @@
   margin-top: 10px;
 }
 
+.blog-caption-text{
+  text-align: center;
+}
+
+.main-text{
+  font-size: 1.3em
+}
+
 
 .timestamp, .username {
   display:block;
+  text-align:right;
 }
-
 
 .blog-body-wrapper{
   margin-top: 10px;

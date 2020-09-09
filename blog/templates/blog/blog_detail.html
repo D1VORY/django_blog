@@ -1,0 +1,33 @@
+{% extends 'mainapp/base.html'%}
+{% load static %}
+
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/blogs.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid justify-content-md-center blog_detail_wrapper">
+
+  <div class="blog-image-wrapper">
+    <img class="big-image" src="/media/{{blog.photo}}" alt="" />
+  </div>
+
+  <div class="blog-caption-wrapper">
+    <h1 class="display-3 blog-caption-text">
+      {{ blog.caption_text }}
+    </h1>
+  </div>
+
+
+  <div class="blog-body-wrapper">
+    <div class="main-text">
+      {{blog.blog_text|linebreaks }}
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}
