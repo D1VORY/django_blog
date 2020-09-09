@@ -1,111 +1,73 @@
 {% extends 'mainapp/base.html'%}
 {% load static %}
+{% load columns %}
+
 
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/blogs.css' %}">
 {% endblock %}
 
+
 {% block content%}
 
 <div class="container-fluid blogs-list">
 
-  <div class="row">
-    <div class="col-sm blog-wrapper">
-      <a href="#">
-      <div class="blog-image-wrapper">
-        <img class="blog-image" src="/media/blog_images/maffiozy.jpg" alt="" />
-      </div>
+      {% for row in object_list|columns:3 %}
+          <div class="row">
+            {% for blog in row %}
+            <div class="col-sm">
+              <div class="col-sm blog-wrapper">
+                <a class="blog-link" href="#">
+                <div class="blog-image-wrapper">
+                  <img class="blog-image" src="/media/{{blog.photo}}" alt="" />
+                </div>
 
 
-      <div class="blog-caption-wrapper">
-        <h2 class="blog-caption-text">
-          This is caption of blog
-        </h2>
+                <div class="blog-caption-wrapper">
+                  <h2 class=" blog-caption-text">
+                    {{blog.caption_text}}
+                  </h2>
 
-        <span class="timestamp">
-          Two hours ago
-        </span>
+                  <span class="text-muted timestamp">
+                    {{blog.created}}
+                  </span>
 
-        <span class="username">
-          @zubenko
-        </span>
+                  <span class="text-muted username">
+                    @{{blog.author.username}}
+                  </span>
+                </div>
 
-      </div>
+                <div class="blog-body-wrapper">
+                  <div class="blog-body-text">
+                    {{blog.blog_text|truncatewords:25 }}
+                  </div>
+                </div>
+                </a>
+              </div>
+            </div>
 
-      <div class="blog-body-wrapper">
-        <div class="blog-body-text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mi...
+            {% if row|length < 2%}
+              <div class="col-sm">
 
-        </div>
-      </div>
-      </a>
-    </div>
+              </div>
+            {% endif %}
 
-    <div class="col-sm blog-wrapper">
-      <div class="blog-image-wrapper">
-        <img class="blog-image" src="/media/blog_images/maffiozy.jpg" alt="" />
-      </div>
+            {% if row|length < 3%}
+              <div class="col-sm">
 
+              </div>
+            {% endif %}
 
-      <div class="blog-caption-wrapper">
-        <h2 class="blog-caption-text">
-          This is caption of blog
-        </h2>
+            {% endfor %}
+          </div>
 
-        <span class="timestamp">
-          Two hours ago
-        </span>
-
-        <span class="username">
-          @zubenko
-        </span>
-      </div>
-
-      <div class="blog-body-wrapper">
-        <div class="blog-body-text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mi...
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm blog-wrapper">
-      <a class="blog-link" href="#">
-      <div class="blog-image-wrapper">
-        <img class="blog-image" src="/media/blog_images/maffiozy.jpg" alt="" />
-      </div>
-
-
-      <div class="blog-caption-wrapper">
-        <h2 class=" blog-caption-text">
-          This is caption of blog
-        </h2>
-
-        <span class="text-muted timestamp">
-          Two hours ago
-        </span>
-
-        <span class="text-muted username">
-          @zubenko
-        </span>
-      </div>
-
-      <div class="blog-body-wrapper">
-        <div class="blog-body-text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mi...
-        </div>
-      </div>
-      </a>
-    </div>
-  </div>
-
-
-</div>
-{% endblock %}
+      {% endfor %}
 
 
 
-{% block js%}
-<script type="text/javascript" src="{% static 'js/blogs.js'%}">
-</script>
+
+
+
+
 
 {% endblock %}
