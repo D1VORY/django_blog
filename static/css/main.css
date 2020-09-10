@@ -6,3 +6,9 @@ body{
 .main-content{
   padding-top: 80px;
 }
+
+.bottom-content{
+  display: flex;
+  justify-content:  center;
+
+}

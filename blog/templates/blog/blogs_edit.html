@@ -1,0 +1,23 @@
+{% extends 'mainapp/base.html'%}
+{% load static %}
+
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/blogs.css' %}">
+{% endblock %}
+
+
+{% block content%}
+  <h2>Posts you can edit: </h2>
+  <ul class="list-group">
+    {% for post in object_list%}
+    <a href="{% url 'edit_post' post.id %}">
+      <li class="list-group-item">
+        {{post.caption_text}}
+      </li>
+    </a>
+    {% endfor %}
+  </ul>
+
+
+{% endblock %}

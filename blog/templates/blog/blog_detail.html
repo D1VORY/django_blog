@@ -16,14 +16,14 @@
 
   <div class="blog-caption-wrapper">
     <h1 class="display-3 blog-caption-text">
-      {{ blog.caption_text }}
+      {{ blog.caption_text}}
     </h1>
   </div>
 
 
   <div class="blog-body-wrapper">
     <div class="main-text">
-      {{blog.blog_text|linebreaks }}
+      {{blog.blog_text|safe|linebreaks  }}
     </div>
   </div>
 

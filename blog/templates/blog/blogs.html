@@ -13,10 +13,12 @@
 <div class="container-fluid blogs-list">
 
       {% for row in object_list|columns:3 %}
-          <div class="row">
+      <div class="row">
             {% for blog in row %}
-            <div class="col-sm">
-              <div class="col-sm blog-wrapper">
+              <div class="col ">
+              <div class="col blog-wrapper">
+
+
                 <a class="blog-link" href="{% url 'blog_detail' blog.id %}">
                 <div class="blog-image-wrapper">
                   <img class="blog-image" src="/media/{{blog.photo}}" alt="" />
@@ -43,21 +45,11 @@
                   </div>
                 </div>
                 </a>
-              </div>
-            </div>
-            {% if  row|length_is:forloop.counter %}
-              {% if row|length == 2%}
-                <div class="col-sm"></div>
-              {% endif %}
-
-              {% if row|length == 1%}
-                <div class="col-sm"></div>
-                <div class="col-sm"></div>
-              {% endif %}
-            {% endif %}
-            {% endfor %}
           </div>
+            </div>
+            {% endfor %}
 
+      </div>
       {% endfor %}
 
 {% endblock %}
@@ -65,24 +57,6 @@
 
 {% block bottom_content%}
   {% if is_paginated %}
-  <ul class="pagination">
-    {% if page_obj.has_previous %}
-      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-    {% else %}
-      <li class="disabled"><span>&laquo;</span></li>
-    {% endif %}
-    {% for i in paginator.page_range %}
-      {% if page_obj.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-      {% else %}
-        <li><a href="?page={{ i }}">{{ i }}</a></li>
-      {% endif %}
-    {% endfor %}
-    {% if page_obj.has_next %}
-      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-    {% else %}
-      <li class="disabled"><span>&raquo;</span></li>
-    {% endif %}
-  </ul>
+ {% include 'blog/pagination.html'%}
   {% endif %}
 {% endblock %}
