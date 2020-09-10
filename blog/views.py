@@ -8,7 +8,7 @@ from .forms import BlogForm
 class BlogListView(ListView):
     template_name = 'blog/blogs.html'
     model = Blog
-
+    paginate_by = 9
 
     def get_queryset(self):
         blogs = Blog.objects.all().order_by('-created')
