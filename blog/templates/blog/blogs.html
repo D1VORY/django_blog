@@ -39,25 +39,22 @@
 
                 <div class="blog-body-wrapper">
                   <div class="blog-body-text">
-                    {{blog.blog_text|truncatewords:25 }}
+                    {{blog.blog_text|safe|truncatewords:25 }}
                   </div>
                 </div>
                 </a>
               </div>
             </div>
+            {% if  row|length_is:forloop.counter %}
+              {% if row|length == 2%}
+                <div class="col-sm"></div>
+              {% endif %}
 
-            {% if row|length < 2%}
-              <div class="col-sm">
-
-              </div>
+              {% if row|length == 1%}
+                <div class="col-sm"></div>
+                <div class="col-sm"></div>
+              {% endif %}
             {% endif %}
-
-            {% if row|length < 3%}
-              <div class="col-sm">
-
-              </div>
-            {% endif %}
-
             {% endfor %}
           </div>
 

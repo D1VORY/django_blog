@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, FormView, CreateView
+
 from .models import Blog
+from .forms import BlogForm
 # Create your views here.
 
 class BlogListView(ListView):
@@ -19,6 +21,14 @@ class BlogDetailView(DetailView):
 
 
 
+class CreateBlogView(FormView):
+    template_name = 'blog/create_blog.html'
+    form_class = BlogForm
+    success_url = './'
 
-def index(request):
-    return render(request, 'blog/blogs.html')
+    def form_valid(self, form):
+        #import pdb; pdb.set_trace()
+        if form.is_valid:
+            blog = Blog(**form.cleaned_data, author=self.request.user)
+            blog.save()
+        return super(CreateBlogView, self).form_valid(form)

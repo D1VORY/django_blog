@@ -1,0 +1,15 @@
+{% extends 'mainapp/base.html'%}
+{% load static %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/blogs.css' %}">
+{% endblock %}
+
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <input type="submit" value="Create">
+  </form>
+{% endblock %}
