@@ -21,7 +21,7 @@
 
                 <a class="blog-link" href="{% url 'blog_detail' blog.id %}">
                 <div class="blog-image-wrapper">
-                  <img class="blog-image" src="/media/{{blog.photo}}" alt="" />
+                  <img class="blog-image" src="{{blog.photo.url}}" alt="" />
                 </div>
 
 
