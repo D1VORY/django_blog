@@ -22,8 +22,13 @@ class BlogEditListView(ListView):
     #paginate_by = 9
 
     def get_queryset(self):
-        blogs = Blog.objects.all().filter(author=self.request.user).order_by('-created')
-        return blogs
+        blogs = Blog.objects.all().order_by('-created')
+        if self.request.user.is_staff:
+            return blogs
+        else:
+
+            return blogs.filter(author=self.request.user)
+
 
 
 class BlogDetailView(DetailView):
@@ -40,7 +45,7 @@ class UpdateBlogView(UpdateView):
     def form_valid(self, form):
         #import pdb; pdb.set_trace()
         if form.is_valid:
-            Blog.objects.filter(pk = self.kwargs['pk']).update(**form.cleaned_data, updated = timezone.now())
+            Blog.objects.filter(pk = self.kwargs['pk']).update(**form.cleaned_data)
         return super(UpdateBlogView, self).form_valid(form)
 
 

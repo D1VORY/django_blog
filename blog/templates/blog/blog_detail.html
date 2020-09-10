@@ -15,19 +15,33 @@
   </div>
 
   <div class="blog-caption-wrapper">
-    <h1 class="display-3 blog-caption-text">
+    <h1 class="display-3 blog-caption-text ">
       {{ blog.caption_text}}
     </h1>
   </div>
 
 
   <div class="blog-body-wrapper">
-    <div class="main-text">
+    <div class="main-text break-word">
       {{blog.blog_text|safe|linebreaks  }}
     </div>
   </div>
 
 </div>
+
+{% endblock %}
+
+
+{% block bottom_content%}
+<div class="post_info-wrapper">
+  <p>
+    edited {{blog.updated|timesince}} ago
+  </p>
+
+    <p>
+      author:{{blog.author.username}}
+    </p>
+  </div>
 
 
 {% endblock %}

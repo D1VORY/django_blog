@@ -10,6 +10,17 @@
   flex-direction: column;
 }
 
+.break-word{
+  word-wrap: break-word;
+}
+
+.kek{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 34ch;
+}
 
 .blogs-list{
   /*margin: 40px 0px;*/
@@ -76,4 +87,8 @@
 
 .blog-body-wrapper{
   margin-top: 10px;
+}
+
+.post_info-wrapper{
+  flex-direction: column;
 }

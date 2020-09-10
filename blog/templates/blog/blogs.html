@@ -31,7 +31,7 @@
                   </h2>
 
                   <span class="text-muted timestamp">
-                    {{ blog.created|human_time }}
+                    {{ blog.created|timesince }} ago
                   </span>
 
                   <span class="text-muted username">
@@ -40,14 +40,17 @@
                 </div>
 
                 <div class="blog-body-wrapper">
-                  <div class="blog-body-text">
-                    {{blog.blog_text|safe|truncatewords:25 }}
-                  </div>
+                  <p class="kek blog-body-text break-word">
+
+                    {{blog.blog_text|striptags|safe|truncatewords:25 }}
+                  </p>
                 </div>
                 </a>
           </div>
             </div>
+
             {% endfor %}
+
 
       </div>
       {% endfor %}
